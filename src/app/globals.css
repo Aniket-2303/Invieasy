@@ -1,0 +1,400 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Color dot utility for template color palette */
+.color-dot[data-color] {
+  background-color: var(--data-color);
+}
+
+/* Template Editor Styles */
+.template-canvas {
+  font-family: var(--font-body, 'Arial, sans-serif');
+  line-height: 1.6;
+}
+
+.template-canvas [contenteditable="true"] {
+  outline: 1px dashed #d1d5db;
+  outline-offset: 1px;
+  transition: outline 0.2s ease;
+  cursor: text;
+}
+
+.template-canvas [contenteditable="true"]:hover {
+  outline: 1px dashed #9ca3af;
+  outline-offset: 1px;
+}
+
+.template-canvas [contenteditable="true"].editing-active {
+  outline: 2px dashed #8b5cf6;
+  outline-offset: 2px;
+  background-color: rgba(139, 92, 246, 0.05);
+}
+
+.template-canvas [contenteditable="true"]:focus {
+  outline: 2px dashed #8b5cf6;
+  outline-offset: 2px;
+  background-color: rgba(139, 92, 246, 0.05);
+}
+
+/* Floating toolbar animations */
+@keyframes toolbarFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-100%) scale(0.9); }
+  to { opacity: 1; transform: translateX(-50%) translateY(-100%) scale(1); }
+}
+
+.toolbar-enter {
+  animation: toolbarFadeIn 0.2s ease-out;
+}
+
+.floating-toolbar {
+  left: var(--toolbar-x, 0px);
+  top: var(--toolbar-y, 0px);
+  transform: translateX(-50%) translateY(-100%);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes floatFade {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes floatY {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
+}
+.animate-float-fade {
+  animation: floatFade 2.5s ease-in-out both, floatY 4s ease-in-out infinite alternate;
+}
+
+.editor-header-shadow {
+  box-shadow: 0 1px 0 #ede6d6;
+}
+
+.editor-preview-size {
+  width: 400px;
+  height: 600px;
+}
+
+.template-preview-inline {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.template-preview-outer {
+  min-width: 100px;
+  min-height: 100px;
+}
+
+/* Floral Dreams Card Styles */
+.floral-card {
+  width: 400px;
+  height: 600px;
+  background: linear-gradient(135deg, #ffe6ec 0%, #f7e6ff 50%, #fdf6e3 100%);
+  padding: 32px 28px;
+  box-sizing: border-box;
+  font-family: 'Cormorant Garamond', serif;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(139, 90, 90, 0.1);
+}
+.floral-bg-svg {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 0;
+}
+.floral-bg-blob1 {
+  fill: #f7c6d6;
+  fill-opacity: 0.18;
+}
+.floral-bg-blob2 {
+  fill: #c6b6f7;
+  fill-opacity: 0.13;
+}
+.floral-bg-blob3 {
+  fill: #f7e6b6;
+  fill-opacity: 0.13;
+}
+.floral-bg-shape {
+  fill: #e6f7e6;
+  fill-opacity: 0.13;
+}
+.floral-bg-blob4 {
+  fill: #f7c6d6;
+  fill-opacity: 0.10;
+}
+.floral-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+.floral-title {
+  font-size: 34px;
+  color: #8B5A5A;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(139, 90, 90, 0.1);
+}
+.floral-divider {
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4A5A5, transparent);
+  margin: 0 auto 10px;
+}
+.floral-names {
+  font-size: 24px;
+  color: #6B4E4E;
+  margin-bottom: 6px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.floral-families {
+  font-size: 13px;
+  color: #8B7355;
+  margin-bottom: 14px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.floral-message {
+  font-size: 15px;
+  color: #6B4E4E;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.floral-details-box {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 16px 10px;
+  border-radius: 10px;
+  margin: 10px 0 0 0;
+  width: 100%;
+  max-width: 270px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 165, 165, 0.18);
+  box-shadow: 0 2px 10px rgba(139, 90, 90, 0.07);
+}
+.floral-date {
+  font-size: 16px;
+  color: #8B5A5A;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+.floral-time {
+  font-size: 13px;
+  color: #6B6660;
+  margin-bottom: 7px;
+}
+.floral-address {
+  font-size: 13px;
+  color: #6B4E4E;
+  line-height: 1.5;
+}
+.floral-rsvp {
+  font-size: 11px;
+  color: #8B7355;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.html-editor-toolbar {
+  position: fixed;
+  z-index: 50;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border: 1px solid #e5e7eb;
+  padding: 0.18rem 0.22rem; /* even less padding */
+  display: flex;
+  align-items: center;
+  gap: 0.10rem; /* even less gap */
+  transform: translate(-50%, -100%);
+  left: var(--toolbar-x, 0px);
+  top: var(--toolbar-y, 0px);
+  max-width: 520px; /* limit width */
+  min-width: 0;
+}
+.html-editor-toolbar select,
+.html-editor-toolbar button,
+.html-editor-toolbar input {
+  min-width: 0;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  font-size: 15px;
+  height: 28px;
+}
+.html-editor-toolbar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.color-swatch-primary { background-color: #b45d8d; }
+.color-swatch-secondary { background-color: #3bb3b3; }
+.color-swatch-text { background-color: #444; }
+.color-swatch-background { background-color: #f3e7fe; }
+/* Add more as needed for other color keys */
+
+.loading-editor {
+  text-align: center;
+  padding: 40px 0;
+}
+.loading-editor-text {
+  font-size: 24px;
+}
+
+.font-montserrat { font-family: 'Montserrat', Arial, sans-serif; }
+.font-roboto { font-family: 'Roboto', Arial, sans-serif; }
+.font-open-sans { font-family: 'Open Sans', Arial, sans-serif; }
+.font-lato { font-family: 'Lato', Arial, sans-serif; }
+.font-poppins { font-family: 'Poppins', Arial, sans-serif; }
+.font-raleway { font-family: 'Raleway', Arial, sans-serif; }
+.font-merriweather { font-family: 'Merriweather', serif; }
+.font-playfair-display { font-family: 'Playfair Display', serif; }
+.font-dancing-script { font-family: 'Dancing Script', cursive; }
+.font-pacifico { font-family: 'Pacifico', cursive; }
+.font-great-vibes { font-family: 'Great Vibes', cursive; }
+.font-caveat { font-family: 'Caveat', cursive; }
+.font-oswald { font-family: 'Oswald', Arial, sans-serif; }
+.font-bebas-neue { font-family: 'Bebas Neue', Arial, sans-serif; }
+.font-indie-flower { font-family: 'Indie Flower', cursive; }
+.font-courier-new { font-family: 'Courier New', Courier, monospace; }
+.font-georgia { font-family: Georgia, serif; }
+.font-comic-sans { font-family: 'Comic Sans MS', cursive, sans-serif; }
+.font-fira-sans { font-family: 'Fira Sans', Arial, sans-serif; }
+.font-quicksand { font-family: 'Quicksand', Arial, sans-serif; }
+.font-arial { font-family: Arial, sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Transparent scrollbar for font family dropdown */
+.font-family-select::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.font-family-select::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+@media (max-width: 500px) {
+  .editor-preview-size,
+  .floral-card {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-width: 0 !important;
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+    box-sizing: border-box;
+  }
+  .card-preview-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .template-preview-outer,
+  .template-preview-inline {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+  .html-editor-toolbar {
+    max-width: 100vw !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Modern Romance template mobile responsiveness */
+  .template-preview-inline > div[style*="width: 400px"] {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 80vh !important;
+    padding: 4vw !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .template-preview-inline > div[style*="width: 400px"] > div[style*="border: 2px solid #C9A96E"] {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 3vw !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .template-preview-inline > div[style*="width: 400px"] > div[style*="border: 2px solid #C9A96E"] > div[style*="text-align: center"] {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Force fixed size for export, override responsive/mobile rules */
+.exporting .template-preview-inline,
+.exporting .template-canvas {
+  width: 400px !important;
+  height: 600px !important;
+  min-width: 400px !important;
+  max-width: 400px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 16px !important;
+}
+
+/* Force fixed size for Floral Dreams template during export */
+.exporting .floral-card {
+  width: 400px !important;
+  height: 600px !important;
+  min-width: 400px !important;
+  max-width: 400px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  box-sizing: border-box !important;
+  padding: 32px 28px !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
