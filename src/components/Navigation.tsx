@@ -28,8 +28,8 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="text-3xl font-serif text-[#8B7355] tracking-tight hover:text-[#6B5B47] transition-colors duration-200" style={{ fontFamily: 'Playfair Display, serif' }}>
-              InviteEasy
+            <Link href="/" className="flex items-center h-24">
+              <img src="/Logo/invieasy_logo-rbg.png" alt="InviteEasy Logo" className="h-25 w-auto object-contain" />
             </Link>
           </div>
 

@@ -1,21 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { FaArrowRight, FaPlay, FaRegClone, FaEnvelopeOpen } from 'react-icons/fa';
 
 export default function Home() {
+  const [showPrivacy, setShowPrivacy] = useState(false);
   return (
     <div className="bg-[#f9f7f3] min-h-screen font-sans">
       <Navigation />
       {/* Hero Section */}
       <section className="pt-16 pb-20 bg-gradient-to-b from-[#f9f7f3] to-[#f3efe7]">
         <div className="max-w-3xl mx-auto text-center px-4">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-[#8B7355] flex items-center justify-center">
-              <FaEnvelopeOpen className="text-white text-2xl" />
-            </div>
-          </div>
+          {/* Removed icon above main heading as requested */}
           <h1 className="text-5xl md:text-6xl font-extrabold font-serif text-[#2d2212] mb-2 leading-tight">
             Create Beautiful <span className="text-[#8B7355]">Invitation Cards</span>
           </h1>
@@ -141,9 +139,7 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="py-20 bg-[#f9f7f3]">
         <div className="max-w-3xl mx-auto text-center px-4">
-          <div className="flex justify-center mb-4">
-            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#8B7355" d="M12 2a1 1 0 0 1 1 1v1.07A7.002 7.002 0 0 1 19.93 11H21a1 1 0 1 1 0 2h-1.07A7.002 7.002 0 0 1 13 19.93V21a1 1 0 1 1-2 0v-1.07A7.002 7.002 0 0 1 4.07 13H3a1 1 0 1 1 0-2h1.07A7.002 7.002 0 0 1 11 4.07V3a1 1 0 0 1 1-1Zm0 4a5 5 0 1 0 0 10A5 5 0 0 0 12 6Z"/></svg>
-          </div>
+          {/* Removed icon above final CTA as requested */}
           <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#2d2212] mb-4">Ready to Create Your Perfect Invitation?</h2>
           <p className="text-lg text-[#7c6a4d] mb-8 font-sans">
             Join thousands of users who have created beautiful invitations with InviteEasy. Start designing your perfect invitation card today – it's completely free!
@@ -175,6 +171,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Footer Section */}
+      <footer className="bg-[#f3efe7] py-8 mt-12 border-t border-brand-card">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-base font-sans text-black">&copy; {new Date().getFullYear()} InviteEasy. All rights reserved.</div>
+          <div className="flex gap-6">
+           <Link href="/privacy-policy" className="hover:underline text-black font-medium">Privacy Policy</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
