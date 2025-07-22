@@ -29,6 +29,7 @@ export default function HtmlEditor({ template, onContentChange, formattingState,
   const canvasRef = useRef<HTMLDivElement>(null);
   const toolbarRef = useRef<HTMLDivElement>(null);
   const isInitializedRef = useRef(false);
+  const [textColor, setTextColor] = useState(template?.defaultColors?.text || "#095764");
 
   useEffect(() => {
     setHtmlContent(template.htmlContent);

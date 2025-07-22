@@ -254,7 +254,7 @@ export default function EditorPage() {
           <p className="text-gray-500 mb-6">The template you're looking for doesn't exist.</p>
           <Link 
             href="/templates" 
-            className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="inline-block px-6 py-3 bg-[#F18701] text-[#FFFCF0] font-medium rounded-lg shadow hover:bg-[#d46e00] hover:shadow-lg transition text-base border-2 border-[#F18701]"
           >
             Back to Templates
           </Link>
@@ -264,29 +264,29 @@ export default function EditorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] font-serif">
+    <div className="min-h-screen bg-[#FFFCF0] font-serif text-[#095764]">
       {/* Top Bar */}
       <div className="w-full border-b border-[#ede6d6] bg-white flex items-center justify-between px-4 sm:px-8 py-3 editor-header-shadow">
         <div className="flex items-center gap-4">
           <Link
             href="/templates"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#ede6d6] border border-[#ede6d6] shadow-sm text-[#8B7355] hover:bg-[#b49b6c] hover:text-white transition-all duration-200 text-base font-serif font-medium focus:outline-none focus:ring-2 focus:ring-[#b49b6c] focus:ring-offset-2"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4EBD0] border border-[#F18701] shadow-sm text-[#F18701] hover:bg-[#F18701] hover:text-white transition-all duration-200 text-base font-serif font-medium focus:outline-none focus:ring-2 focus:ring-[#F18701] focus:ring-offset-2"
             style={{ minWidth: '80px' }}
             aria-label="Back"
           >
             <span className="mr-1 text-2xl transition-transform group-hover:-translate-x-1">&#8592;</span> Back
           </Link>
           <div className="flex items-center gap-3 ml-4 sm:ml-8">
-            <span className="inline-flex items-center justify-center w-8 h-8 rounded text-[#b49b6c] bg-[#f8f6f2] border border-[#ede6d6] mr-2"><LuPencilLine size={22}/></span>
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded text-[#F18701] bg-[#F4EBD0] border border-[#F18701] mr-2"><LuPencilLine size={22}/></span>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-serif font-bold text-[#2d2212] leading-tight">Template Editor</span>
-              <span className="text-xs sm:text-sm font-sans text-[#7c6a4d] font-normal mt-0.5">Editing: <span className="font-medium text-[#2d2212]">{template?.name}</span></span>
+              <span className="text-xl sm:text-2xl font-serif text-[#2F2F2F] leading-tight">Template Editor</span>
+              <span className="text-xs sm:text-sm font-sans text-[#7A7A7A] font-normal mt-0.5">Editing: <span className="font-medium text-[#095764]">{template?.name}</span></span>
             </div>
           </div>
         </div>
       </div>
       {/* Formatting Toolbar - Canva style */}
-      <div className="w-full bg-[#f8f6f2] py-2 sm:py-4 overflow-x-auto">
+      <div className="w-full py-2 sm:py-4 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-2 sm:px-4">
           <div className="flex justify-center">
             {/* Desktop Layout - Single Row */}
@@ -340,35 +340,35 @@ export default function EditorPage() {
                 <option value="128">128</option>
               </select>
               {/* Formatting Buttons */}
-              <button onMouseDown={e => { e.preventDefault(); applyFormatting('bold'); }} className={`p-2 rounded transition-colors ${formattingState.bold ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Bold (Ctrl+B)"><FaBold size={14} /></button>
-              <button onMouseDown={e => { e.preventDefault(); applyFormatting('italic'); }} className={`p-2 rounded transition-colors ${formattingState.italic ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Italic (Ctrl+I)"><FaItalic size={14} /></button>
-              <button onMouseDown={e => { e.preventDefault(); applyFormatting('underline'); }} className={`p-2 rounded transition-colors ${formattingState.underline ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Underline (Ctrl+U)"><FaUnderline size={14} /></button>
-              <button onMouseDown={e => { e.preventDefault(); applyFormatting('strikethrough'); }} className={`p-2 rounded transition-colors ${formattingState.strikethrough ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Strikethrough"><FaStrikethrough size={14} /></button>
+              <button onMouseDown={e => { e.preventDefault(); applyFormatting('bold'); }} className={`p-2 rounded transition-colors ${formattingState.bold ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Bold (Ctrl+B)"><FaBold size={14} /></button>
+              <button onMouseDown={e => { e.preventDefault(); applyFormatting('italic'); }} className={`p-2 rounded transition-colors ${formattingState.italic ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Italic (Ctrl+I)"><FaItalic size={14} /></button>
+              <button onMouseDown={e => { e.preventDefault(); applyFormatting('underline'); }} className={`p-2 rounded transition-colors ${formattingState.underline ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Underline (Ctrl+U)"><FaUnderline size={14} /></button>
+              <button onMouseDown={e => { e.preventDefault(); applyFormatting('strikethrough'); }} className={`p-2 rounded transition-colors ${formattingState.strikethrough ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Strikethrough"><FaStrikethrough size={14} /></button>
               {/* Aa (case) */}
-              <button onMouseDown={e => { e.preventDefault(); toggleTextCase(); }} className="p-2 rounded hover:bg-transparent transition-colors text-gray-700 font-bold text-lg" title="Uppercase/Lowercase">Aa</button>
+              <button onMouseDown={e => { e.preventDefault(); toggleTextCase(); }} className="p-2 rounded hover:bg-gray-100 transition-colors text-black text-lg" title="Uppercase/Lowercase">Aa</button>
               {/* Text Color */}
-              <div className="flex items-center gap-1 border-l border-gray-200 pl-2 ml-2">
+              <div className="flex items-center gap-1 border-l border-gray-300 pl-2 ml-2">
                 <label className="relative cursor-pointer group" title="Text Color">
                   <input
                     type="color"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    defaultValue={template.defaultColors.text || "#000000"}
+                    defaultValue={template.defaultColors.text || "#095764"}
                     onChange={(e) => applyTextColor(e.target.value)}
                     aria-label="Text Color"
                   />
                   <FaPalette
                     size={22}
-                    style={{ color: textColor, transition: 'color 0.2s' }}
+                    style={{ color: textColor || '#222', transition: 'color 0.2s' }}
                     className="hover:scale-110 transition-transform"
                   />
                 </label>
               </div>
               {/* Alignment Buttons */}
-              <div className="flex items-center gap-1 border-l border-gray-200 pl-2 ml-2">
-                <button onMouseDown={e => { e.preventDefault(); applyAlignment('left'); }} className={`p-2 rounded transition-colors ${formattingState.alignLeft ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Left"><FaAlignLeft size={14} /></button>
-                <button onMouseDown={e => { e.preventDefault(); applyAlignment('center'); }} className={`p-2 rounded transition-colors ${formattingState.alignCenter ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Center"><FaAlignCenter size={14} /></button>
-                <button onMouseDown={e => { e.preventDefault(); applyAlignment('right'); }} className={`p-2 rounded transition-colors ${formattingState.alignRight ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Right"><FaAlignRight size={14} /></button>
-                <button onMouseDown={e => { e.preventDefault(); applyAlignment('justify'); }} className={`p-2 rounded transition-colors ${formattingState.alignJustify ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Justify"><FaAlignJustify size={14} /></button>
+              <div className="flex items-center gap-1 border-l border-gray-300 pl-2 ml-2">
+                <button onMouseDown={e => { e.preventDefault(); applyAlignment('left'); }} className={`p-2 rounded transition-colors ${formattingState.alignLeft ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Left"><FaAlignLeft size={14} /></button>
+                <button onMouseDown={e => { e.preventDefault(); applyAlignment('center'); }} className={`p-2 rounded transition-colors ${formattingState.alignCenter ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Center"><FaAlignCenter size={14} /></button>
+                <button onMouseDown={e => { e.preventDefault(); applyAlignment('right'); }} className={`p-2 rounded transition-colors ${formattingState.alignRight ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Right"><FaAlignRight size={14} /></button>
+                <button onMouseDown={e => { e.preventDefault(); applyAlignment('justify'); }} className={`p-2 rounded transition-colors ${formattingState.alignJustify ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Justify"><FaAlignJustify size={14} /></button>
               </div>
             </div>
 
@@ -429,13 +429,13 @@ export default function EditorPage() {
                   <input
                     type="color"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    defaultValue={template.defaultColors.text || "#000000"}
+                    defaultValue={template.defaultColors.text || "#095764"}
                     onChange={(e) => applyTextColor(e.target.value)}
                     aria-label="Text Color"
                   />
                   <FaPalette
                     size={18}
-                    style={{ color: textColor, transition: 'color 0.2s' }}
+                    style={{ color: textColor || '#095764', transition: 'color 0.2s' }}
                     className="hover:scale-110 transition-transform"
                   />
                 </label>
@@ -445,19 +445,19 @@ export default function EditorPage() {
               <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-2 flex items-center justify-between gap-2 min-h-[44px]">
                 {/* Formatting Buttons */}
                 <div className="flex items-center gap-1">
-                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('bold'); }} className={`p-2 rounded transition-colors ${formattingState.bold ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Bold (Ctrl+B)"><FaBold size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('italic'); }} className={`p-2 rounded transition-colors ${formattingState.italic ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Italic (Ctrl+I)"><FaItalic size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('underline'); }} className={`p-2 rounded transition-colors ${formattingState.underline ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Underline (Ctrl+U)"><FaUnderline size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('strikethrough'); }} className={`p-2 rounded transition-colors ${formattingState.strikethrough ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Strikethrough"><FaStrikethrough size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('bold'); }} className={`p-2 rounded transition-colors ${formattingState.bold ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Bold (Ctrl+B)"><FaBold size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('italic'); }} className={`p-2 rounded transition-colors ${formattingState.italic ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Italic (Ctrl+I)"><FaItalic size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('underline'); }} className={`p-2 rounded transition-colors ${formattingState.underline ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Underline (Ctrl+U)"><FaUnderline size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyFormatting('strikethrough'); }} className={`p-2 rounded transition-colors ${formattingState.strikethrough ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Strikethrough"><FaStrikethrough size={14} /></button>
                 </div>
                 {/* Aa (case) */}
-                <button onMouseDown={e => { e.preventDefault(); toggleTextCase(); }} className="p-2 rounded hover:bg-transparent transition-colors text-gray-700 font-bold text-base" title="Uppercase/Lowercase">Aa</button>
+                <button onMouseDown={e => { e.preventDefault(); toggleTextCase(); }} className="p-2 rounded hover:bg-gray-100 transition-colors text-black font-bold text-base" title="Uppercase/Lowercase">Aa</button>
                 {/* Alignment Buttons */}
                 <div className="flex items-center gap-1">
-                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('left'); }} className={`p-2 rounded transition-colors ${formattingState.alignLeft ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Left"><FaAlignLeft size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('center'); }} className={`p-2 rounded transition-colors ${formattingState.alignCenter ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Center"><FaAlignCenter size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('right'); }} className={`p-2 rounded transition-colors ${formattingState.alignRight ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Align Right"><FaAlignRight size={14} /></button>
-                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('justify'); }} className={`p-2 rounded transition-colors ${formattingState.alignJustify ? 'bg-[#8B7355] text-white' : 'text-gray-700 hover:bg-transparent'} `} title="Justify"><FaAlignJustify size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('left'); }} className={`p-2 rounded transition-colors ${formattingState.alignLeft ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Left"><FaAlignLeft size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('center'); }} className={`p-2 rounded transition-colors ${formattingState.alignCenter ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Center"><FaAlignCenter size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('right'); }} className={`p-2 rounded transition-colors ${formattingState.alignRight ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Align Right"><FaAlignRight size={14} /></button>
+                  <button onMouseDown={e => { e.preventDefault(); applyAlignment('justify'); }} className={`p-2 rounded transition-colors ${formattingState.alignJustify ? 'bg-gray-200 text-black' : 'text-black hover:bg-gray-100'} `} title="Justify"><FaAlignJustify size={14} /></button>
                 </div>
               </div>
             </div>
@@ -479,28 +479,28 @@ export default function EditorPage() {
           </div>
           {/* Export Options - show only on mobile */}
           <div className="w-full max-w-[520px] mt-4 sm:hidden">
-            <div className="bg-white rounded-2xl shadow p-6">
+            <div className="bg-[#EAE7DC] rounded-2xl shadow p-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-base font-serif text-[#2d2212] font-medium">Export Options</span>
+                <span className="text-base font-serif text-[#2F2F2F] font-medium">Export Options</span>
               </div>
               <button 
                 onClick={exportAsImage}
                 disabled={isExporting}
-                className="w-full h-10 px-4 rounded-md bg-[#ede6d6] text-[#2d2212] font-normal font-serif border border-[#ede6d6] hover:bg-[#e3dac3] transition text-[15px] leading-tight shadow-none mb-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-2 ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
               >
                 {isExporting ? 'Exporting...' : 'Export as Image'}
               </button>
               <button 
                 onClick={exportAsPDF}
                 disabled={isExporting}
-                className="w-full h-10 px-4 rounded-md bg-[#b49b6c] text-white font-normal font-serif border border-[#b49b6c] hover:bg-[#a68a5b] transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
               >
                 <span>{isExporting ? 'Exporting...' : 'Export as PDF'}</span>
-                <span className='block text-xs font-sans font-normal text-white/80 mt-0.5 leading-tight'>Print-ready document format</span>
+                <span className='block text-xs font-sans font-normal text-[#2F2F2F] mt-0.5 leading-tight'>Print-ready document format</span>
               </button>
-              <div className="bg-[#f8f6f2] rounded p-3 text-xs text-[#7c6a4d] font-sans">
-                <div className="font-semibold mb-1">Export Tips:</div>
-                <ul className="list-disc list-inside">
+              <div className="p-3 text-xs text-[#7c6a4d] font-sans">
+                <div className="font-semibold mb-1 text-[#2F2F2F]">Export Tips:</div>
+                <ul className="list-disc list-inside text-[#7A7A7A]">
                   <li>JPG for social media sharing</li>
                   <li>PDF for professional printing</li>
                   <li>Exports are high-resolution (2x scale)</li>
@@ -514,12 +514,12 @@ export default function EditorPage() {
           {/* Top sections with equal spacing */}
           <div className="flex flex-col gap-6">
             {/* Editing Instructions */}
-            <div className="bg-[#f8f6f2] rounded-xl border border-[#ede6d6] p-5">
+            <div className="bg-[#F4EBD0] rounded-xl p-5">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-[#b49b6c] text-xl">&#8505;</span>
-              <span className="font-semibold text-[#2d2212] text-[15px] font-serif">Editing Instructions:</span>
+              <span className="font-semibold text-[#2F2F2F] text-[15px] font-serif">Editing Instructions:</span>
             </div>
-            <ul className="list-disc pl-0 ml-5 text-[#7c6a4d] text-[14px] font-sans space-y-1 leading-snug">
+            <ul className="list-disc pl-0 ml-5 text-[#7A7A7A] text-[14px] font-sans space-y-1 leading-snug">
               <li>Click on any text with dashed outline to edit</li>
               <li>Select text to show formatting toolbar</li>
               <li>Changes are saved automatically</li>
@@ -527,28 +527,28 @@ export default function EditorPage() {
             </ul>
           </div>
           {/* Export Options (desktop only) */}
-            <div className="bg-white rounded-2xl shadow p-6">
+            <div className="bg-[#F4EBD0] rounded-2xl shadow p-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-base font-serif text-[#2d2212] font-medium">Export Options</span>
+              <span className="text-base font-serif text-[#2F2F2F] font-medium">Export Options</span>
             </div>
             <button 
               onClick={exportAsImage}
               disabled={isExporting}
-              className="w-full h-10 px-4 rounded-md bg-[#ede6d6] text-[#2d2212] font-normal font-serif border border-[#ede6d6] hover:bg-[#e3dac3] transition text-[15px] leading-tight shadow-none mb-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-2 ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
             >
               {isExporting ? 'Exporting...' : 'Export as Image'}
             </button>
             <button 
               onClick={exportAsPDF}
               disabled={isExporting}
-              className="w-full h-10 px-4 rounded-md bg-[#b49b6c] text-white font-normal font-serif border border-[#b49b6c] hover:bg-[#a68a5b] transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
             >
               <span>{isExporting ? 'Exporting...' : 'Export as PDF'}</span>
-              <span className='block text-xs font-sans font-normal text-white/80 mt-0.5 leading-tight'>Print-ready document format</span>
+              <span className='block text-xs font-sans font-normal text-[#2F2F2F] mt-0.5 leading-tight'>Print-ready document format</span>
             </button>
-            <div className="bg-[#f8f6f2] rounded p-3 text-xs text-[#7c6a4d] font-sans">
-              <div className="font-semibold mb-1">Export Tips:</div>
-              <ul className="list-disc list-inside">
+            <div className="p-3 text-xs text-[#7c6a4d] font-sans">
+              <div className="font-semibold mb-1 text-[#2F2F2F]">Export Tips:</div>
+              <ul className="list-disc list-inside text-[#7A7A7A]">
                 <li>JPG for social media sharing</li>
                 <li>PDF for professional printing</li>
                 <li>Exports are high-resolution (2x scale)</li>
@@ -558,12 +558,12 @@ export default function EditorPage() {
           </div>
           
           {/* Template Details - positioned at bottom */}
-          <div className="bg-white rounded-2xl shadow p-6">
-            <div className="text-base font-serif text-[#2d2212] font-medium mb-4">Template Details</div>
+          <div className="bg-[#F4EBD0] rounded-2xl shadow p-6">
+            <div className="text-base font-serif text-[#2F2F2F] font-medium mb-4">Template Details</div>
             <div className="flex flex-col gap-2 text-sm font-sans">
-              <div className="flex justify-between"><span className="text-[#7c6a4d]">Name:</span><span className="text-[#2d2212] font-medium">{template.name}</span></div>
-              <div className="flex justify-between"><span className="text-[#7c6a4d]">Category:</span><span className="text-[#2d2212] font-medium capitalize">{template.category}</span></div>
-              <div className="flex justify-between"><span className="text-[#7c6a4d]">Format:</span><span className="text-[#2d2212] font-medium">400×600px</span></div>
+              <div className="flex justify-between"><span className="text-[#2F2F2F]">Name:</span><span className="text-[#7A7A7A] font-medium">{template.name}</span></div>
+              <div className="flex justify-between"><span className="text-[#2F2F2F]">Category:</span><span className="text-[#7A7A7A] font-medium capitalize">{template.category}</span></div>
+              <div className="flex justify-between"><span className="text-[#2F2F2F]">Format:</span><span className="text-[#7A7A7A] font-medium">400×600px</span></div>
             </div>
           </div>
         </div>
