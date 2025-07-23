@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { FaBars, FaTimes, FaHome, FaRegClone, FaRegQuestionCircle } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaRegClone } from 'react-icons/fa';
 
 export default function Navigation() {
   const pathname = usePathname();

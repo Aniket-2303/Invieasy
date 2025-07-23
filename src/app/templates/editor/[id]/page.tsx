@@ -9,13 +9,13 @@ import jsPDF from 'jspdf';
 import { LuPencilLine } from 'react-icons/lu';
 import {FaPalette } from 'react-icons/fa';
 import { FaBold, FaItalic, FaUnderline, FaStrikethrough, FaAlignLeft, FaAlignCenter, FaAlignRight, FaAlignJustify } from 'react-icons/fa';
+import type { Template } from '@/data/templates';
 
 export default function EditorPage() {
   const params = useParams();
   const router = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
-  const [template, setTemplate] = useState<any>(null);
-  const [htmlContent, setHtmlContent] = useState<string>('');
+  const [template, setTemplate] = useState<Template | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [formattingState, setFormattingState] = useState({
     bold: false,
@@ -27,7 +27,9 @@ export default function EditorPage() {
     alignRight: false,
     alignJustify: false
   });
-  const [textColor, setTextColor] = useState(template?.defaultColors?.text || "#000000");
+  const [textColor, setTextColor] = useState(
+    (template as any)?.defaultColors?.text || "#000000"
+  );
   const [isExportingImage, setIsExportingImage] = useState(false);
   const [isExportingPDF, setIsExportingPDF] = useState(false);
 
@@ -37,7 +39,6 @@ export default function EditorPage() {
     
     if (foundTemplate) {
       setTemplate(foundTemplate);
-      setHtmlContent(foundTemplate.htmlContent);
     } else {
       // Template not found, redirect to templates page
       router.push('/templates');
@@ -47,7 +48,10 @@ export default function EditorPage() {
   }, [params.id, router]);
 
   const handleContentChange = (newContent: string) => {
-    setHtmlContent(newContent);
+    if (template) {
+      (template as any).htmlContent = newContent;
+      setTemplate(template);
+    }
   };
 
   const handleFormattingChange = (newState: any) => {
@@ -138,7 +142,7 @@ export default function EditorPage() {
       document.body.removeChild(tempContainer);
       
       const link = document.createElement('a');
-      link.download = `${template.name}-invitation.jpg`;
+      link.download = `${(template as any).name}-invitation.jpg`;
       link.href = canvas.toDataURL('image/jpeg', 0.95);
       link.click();
     } catch (error) {
@@ -199,7 +203,7 @@ export default function EditorPage() {
       const pdf = new jsPDF('p', 'mm', 'a4', true);
       // Fit the image to the full A4 page
       pdf.addImage(imgData, 'PNG', 0, 0, 210, 297, undefined, 'FAST');
-      pdf.save(`${template.name}-invitation.pdf`);
+      pdf.save(`${(template as any).name}-invitation.pdf`);
     } catch (error) {
       console.error('Error exporting as PDF:', error);
       alert('Failed to export PDF. Please try again.');
@@ -279,7 +283,7 @@ export default function EditorPage() {
             <span className="inline-flex items-center justify-center w-8 h-8 rounded text-[#F18701] bg-[#F4EBD0] border border-[#F18701] mr-2"><LuPencilLine size={22}/></span>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-serif text-[#2F2F2F] leading-tight">Template Editor</span>
-              <span className="text-xs sm:text-sm font-sans text-[#7A7A7A] font-normal mt-0.5">Editing: <span className="font-medium text-[#095764]">{template?.name}</span></span>
+              <span className="text-xs sm:text-sm font-sans text-[#7A7A7A] font-normal mt-0.5">Editing: <span className="font-medium text-[#095764]">{(template as any).name}</span></span>
             </div>
           </div>
         </div>
@@ -351,7 +355,7 @@ export default function EditorPage() {
                   <input
                     type="color"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    defaultValue={template.defaultColors.text || "#095764"}
+                    defaultValue={(template as any).defaultColors.text || "#095764"}
                     onChange={(e) => applyTextColor(e.target.value)}
                     aria-label="Text Color"
                   />
@@ -428,7 +432,7 @@ export default function EditorPage() {
                   <input
                     type="color"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    defaultValue={template.defaultColors.text || "#095764"}
+                    defaultValue={(template as any).defaultColors.text || "#095764"}
                     onChange={(e) => applyTextColor(e.target.value)}
                     aria-label="Text Color"
                   />
@@ -470,7 +474,7 @@ export default function EditorPage() {
         <div className="flex-1 flex flex-col items-center">
           <div ref={cardRef} className="bg-white rounded-2xl shadow p-2 sm:p-8 flex flex-col items-center w-full max-w-[520px] mx-auto card-preview-container">
             <HtmlEditor 
-              template={template} 
+              template={template as any} 
               onContentChange={handleContentChange}
               formattingState={formattingState}
               onFormattingChange={handleFormattingChange}
@@ -560,8 +564,8 @@ export default function EditorPage() {
           <div className="bg-[#F4EBD0] rounded-2xl shadow p-6">
             <div className="text-base font-serif text-[#2F2F2F] font-medium mb-4">Template Details</div>
             <div className="flex flex-col gap-2 text-sm font-sans">
-              <div className="flex justify-between"><span className="text-[#2F2F2F]">Name:</span><span className="text-[#7A7A7A] font-medium">{template.name}</span></div>
-              <div className="flex justify-between"><span className="text-[#2F2F2F]">Category:</span><span className="text-[#7A7A7A] font-medium capitalize">{template.category}</span></div>
+              <div className="flex justify-between"><span className="text-[#2F2F2F]">Name:</span><span className="text-[#7A7A7A] font-medium">{(template as any).name}</span></div>
+              <div className="flex justify-between"><span className="text-[#2F2F2F]">Category:</span><span className="text-[#7A7A7A] font-medium capitalize">{(template as any).category}</span></div>
               <div className="flex justify-between"><span className="text-[#2F2F2F]">Format:</span><span className="text-[#7A7A7A] font-medium">400×600px</span></div>
             </div>
           </div>

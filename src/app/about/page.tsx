@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
-import { FaEnvelope } from 'react-icons/fa';
 
 export default function About() {
   return (

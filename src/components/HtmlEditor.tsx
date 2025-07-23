@@ -15,7 +15,7 @@ interface HtmlEditorProps {
     alignRight: boolean;
     alignJustify: boolean;
   };
-  onFormattingChange: (state: any) => void;
+  onFormattingChange: (state: unknown) => void;
 }
 
 export default function HtmlEditor({ template, onContentChange, formattingState, onFormattingChange }: HtmlEditorProps) {
@@ -337,12 +337,12 @@ export default function HtmlEditor({ template, onContentChange, formattingState,
   // Expose formatting functions to parent component
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      (window as any).applyFormatting = applyFormatting;
-      (window as any).applyAlignment = applyAlignment;
-      (window as any).applyFontSize = applyFontSize;
-      (window as any).applyFontFamily = applyFontFamily;
-      (window as any).applyTextColor = applyTextColor;
-      (window as any).applyBackgroundColor = applyBackgroundColor;
+      (window as unknown as { applyFormatting: (command: string, value?: string) => void }).applyFormatting = applyFormatting;
+      (window as unknown as { applyAlignment: (alignment: string) => void }).applyAlignment = applyAlignment;
+      (window as unknown as { applyFontSize: (size: string) => void }).applyFontSize = applyFontSize;
+      (window as unknown as { applyFontFamily: (fontFamily: string) => void }).applyFontFamily = applyFontFamily;
+      (window as unknown as { applyTextColor: (color: string) => void }).applyTextColor = applyTextColor;
+      (window as unknown as { applyBackgroundColor: (color: string) => void }).applyBackgroundColor = applyBackgroundColor;
     }
   }, []);
 

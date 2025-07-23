@@ -3,10 +3,9 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
-import { FaArrowRight, FaPlay, FaRegClone, FaEnvelopeOpen } from 'react-icons/fa';
+import { FaArrowRight, FaRegClone } from 'react-icons/fa';
 
 export default function Home() {
-  const [showPrivacy, setShowPrivacy] = useState(false);
   return (
     <div className="bg-[#FFFCF0] min-h-screen font-sans text-[#095764]">
       <Navigation />
@@ -139,7 +138,7 @@ export default function Home() {
           {/* Removed icon above final CTA as requested */}
           <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#095764] mb-4">Ready to Create Your Perfect Invitation?</h2>
           <p className="text-lg text-[#2F2F2F] mb-8 font-sans">
-            Join thousands of users who have created beautiful invitations with InviteEasy. Start designing your perfect invitation card today – it's completely free!
+            Join thousands of users who have created beautiful invitations with InviteEasy. Start designing your perfect invitation card today – it&apos;s completely free!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <Link href="/templates" className="inline-flex items-center justify-center px-8 py-4 bg-[#F18701] text-[#FFFCF0] font-medium rounded-xl shadow-lg hover:bg-[#d46e00] hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg font-sans border-2 border-[#F18701]">

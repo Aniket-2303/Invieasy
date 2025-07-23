@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Template } from '@/data/templates';
 import Link from 'next/link';
-import { FaEye, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 
 interface TemplateGridProps {
   templates: Template[];
