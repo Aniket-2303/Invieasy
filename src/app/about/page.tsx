@@ -32,7 +32,7 @@ export default function About() {
           We put a lot of care and creativity into InviteEasy, so you can focus on celebrating your moments.
         </div>
       </section>
-      <footer className="bg-[#EAE7DC] py-8 mt-12 text-[#095764]">
+      <footer className="bg-[#EAE7DC] py-4 mt-8 text-[#095764]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-base font-sans text-[#095764]">&copy; {new Date().getFullYear()} InviteEasy. All rights reserved.</div>
           <div className="flex gap-6">

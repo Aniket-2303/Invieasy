@@ -8,7 +8,7 @@
 :root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-poppins), Helvetica, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,7 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Color dot utility for template color palette */
@@ -281,7 +281,7 @@ body {
 .font-roboto { font-family: 'Roboto', Arial, sans-serif; }
 .font-open-sans { font-family: 'Open Sans', Arial, sans-serif; }
 .font-lato { font-family: 'Lato', Arial, sans-serif; }
-.font-poppins { font-family: 'Poppins', Arial, sans-serif; }
+.font-poppins { font-family: 'Poppins', Helvetica, Arial, sans-serif; }
 .font-raleway { font-family: 'Raleway', Arial, sans-serif; }
 .font-merriweather { font-family: 'Merriweather', serif; }
 .font-playfair-display { font-family: 'Playfair Display', serif; }
@@ -307,6 +307,21 @@ body {
 }
 .font-family-select::-webkit-scrollbar-thumb {
   background: transparent;
+}
+
+/* Headings, CTA, labels */
+h1, h2, h3, h4, h5, h6,
+.font-serif, /* for any class using font-serif for headings */
+.font-bold, .font-semibold, .font-medium, /* for CTA/labels */
+button, .btn, label, .cta {
+  font-family: 'Poppins', Helvetica, Arial, sans-serif !important;
+  font-weight: 600;
+}
+
+/* General UI fallback */
+body, .font-sans, p, span, div, input, textarea {
+  font-family: var(--font-sans);
+  font-weight: 400;
 }
 
 @media (max-width: 500px) {
@@ -397,4 +412,9 @@ body {
   margin: 0 !important;
   border-radius: 12px !important;
   overflow: hidden !important;
+}
+
+/* Fix: Make export buttons normal weight, not bold */
+.export-btn {
+  font-weight: 400 !important;
 }

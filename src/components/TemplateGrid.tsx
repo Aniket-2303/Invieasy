@@ -47,7 +47,7 @@ export default function TemplateGrid({ templates, category }: TemplateGridProps)
             <div className="relative">
               <img
                 src={template.thumbnail}
-                alt={template.name}
+                alt={template.name + ' invitation template'}
                 className="w-full h-56 object-cover rounded-t-2xl"
               />
               {/* Badge */}

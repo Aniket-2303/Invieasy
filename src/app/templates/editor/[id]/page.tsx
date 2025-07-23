@@ -28,7 +28,8 @@ export default function EditorPage() {
     alignJustify: false
   });
   const [textColor, setTextColor] = useState(template?.defaultColors?.text || "#000000");
-  const [isExporting, setIsExporting] = useState(false);
+  const [isExportingImage, setIsExportingImage] = useState(false);
+  const [isExportingPDF, setIsExportingPDF] = useState(false);
 
   useEffect(() => {
     const templateId = params.id as string;
@@ -91,9 +92,8 @@ export default function EditorPage() {
   };
 
   const exportAsImage = async () => {
-    if (!cardRef.current || isExporting) return;
-    
-    setIsExporting(true);
+    if (!cardRef.current || isExportingImage || isExportingPDF) return;
+    setIsExportingImage(true);
     try {
       // Get the actual card element inside the container
       const cardElement = cardRef.current.querySelector('.template-preview-inline') as HTMLElement;
@@ -145,14 +145,13 @@ export default function EditorPage() {
       console.error('Error exporting as image:', error);
       alert('Failed to export image. Please try again.');
     } finally {
-      setIsExporting(false);
+      setIsExportingImage(false);
     }
   };
 
   const exportAsPDF = async () => {
-    if (!cardRef.current || isExporting) return;
-    
-    setIsExporting(true);
+    if (!cardRef.current || isExportingImage || isExportingPDF) return;
+    setIsExportingPDF(true);
     try {
       // Get the actual card element inside the container
       const cardElement = cardRef.current.querySelector('.template-preview-inline') as HTMLElement;
@@ -205,7 +204,7 @@ export default function EditorPage() {
       console.error('Error exporting as PDF:', error);
       alert('Failed to export PDF. Please try again.');
     } finally {
-      setIsExporting(false);
+      setIsExportingPDF(false);
     }
   };
 
@@ -485,18 +484,18 @@ export default function EditorPage() {
               </div>
               <button 
                 onClick={exportAsImage}
-                disabled={isExporting}
-                className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-2 ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
+                disabled={isExportingImage || isExportingPDF}
+                className={`w-full h-10 px-4 rounded-lg font-normal font-poppins export-btn border border-[#F18701] transition text-lg leading-tight shadow mb-2 flex items-center justify-center ${isExportingImage ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#F4EBD0] text-[#F18701] hover:bg-[#F18701] hover:text-white hover:shadow-lg'}`}
               >
-                {isExporting ? 'Exporting...' : 'Export as Image'}
+                {isExportingImage ? 'Exporting...' : 'Export as Image'}
               </button>
               <button 
                 onClick={exportAsPDF}
-                disabled={isExporting}
-                className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
+                disabled={isExportingImage || isExportingPDF}
+                className={`w-full h-10 px-4 rounded-lg font-normal font-poppins export-btn border border-[#F18701] transition text-lg leading-tight shadow mb-3 flex flex-col items-center justify-center ${isExportingPDF ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#F4EBD0] text-[#F18701] hover:bg-[#F18701] hover:text-white hover:shadow-lg'}`}
               >
-                <span>{isExporting ? 'Exporting...' : 'Export as PDF'}</span>
-                <span className='block text-xs font-sans font-normal text-[#2F2F2F] mt-0.5 leading-tight'>Print-ready document format</span>
+                <span className="font-normal">{isExportingPDF ? 'Exporting...' : 'Export as PDF'}</span>
+                <span className={`block text-xs font-sans font-normal mt-0.5 leading-tight ${isExportingPDF ? 'text-[#7A7A7A]' : 'text-inherit'}`}>Print-ready document format</span>
               </button>
               <div className="p-3 text-xs text-[#7c6a4d] font-sans">
                 <div className="font-semibold mb-1 text-[#2F2F2F]">Export Tips:</div>
@@ -533,18 +532,18 @@ export default function EditorPage() {
             </div>
             <button 
               onClick={exportAsImage}
-              disabled={isExporting}
-              className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-2 ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
+              disabled={isExportingImage || isExportingPDF}
+              className={`w-full h-10 px-4 rounded-lg font-normal font-poppins export-btn border border-[#F18701] transition text-lg leading-tight shadow mb-2 flex items-center justify-center ${isExportingImage ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#F4EBD0] text-[#F18701] hover:bg-[#F18701] hover:text-white hover:shadow-lg'}`}
             >
-              {isExporting ? 'Exporting...' : 'Export as Image'}
+              {isExportingImage ? 'Exporting...' : 'Export as Image'}
             </button>
             <button 
               onClick={exportAsPDF}
-              disabled={isExporting}
-              className={`w-full h-10 px-4 rounded-md font-normal font-serif border transition text-[15px] leading-tight shadow-none mb-3 flex flex-col items-center justify-center ${isExporting ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#EAE7DC] text-[#2F2F2F] border-[#EAE7DC] hover:bg-[#e3dac3]'}`}
+              disabled={isExportingImage || isExportingPDF}
+              className={`w-full h-10 px-4 rounded-lg font-normal font-poppins export-btn border border-[#F18701] transition text-lg leading-tight shadow mb-3 flex flex-col items-center justify-center ${isExportingPDF ? 'bg-[#F9F5EF] text-[#7A7A7A] border-[#F9F5EF] cursor-not-allowed opacity-70' : 'bg-[#F4EBD0] text-[#F18701] hover:bg-[#F18701] hover:text-white hover:shadow-lg'}`}
             >
-              <span>{isExporting ? 'Exporting...' : 'Export as PDF'}</span>
-              <span className='block text-xs font-sans font-normal text-[#2F2F2F] mt-0.5 leading-tight'>Print-ready document format</span>
+              <span className="font-normal">{isExportingPDF ? 'Exporting...' : 'Export as PDF'}</span>
+              <span className={`block text-xs font-sans font-normal mt-0.5 leading-tight ${isExportingPDF ? 'text-[#7A7A7A]' : 'text-inherit'}`}>Print-ready document format</span>
             </button>
             <div className="p-3 text-xs text-[#7c6a4d] font-sans">
               <div className="font-semibold mb-1 text-[#2F2F2F]">Export Tips:</div>

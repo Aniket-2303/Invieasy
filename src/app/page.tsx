@@ -37,7 +37,7 @@ export default function Home() {
       {/* Why Choose Section */}
       <section className="py-20 bg-[#FFFCF0]">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#095764] text-center mb-10">Why Choose InviteEasy?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#095764] text-center mb-10">Why Choose Invieasy?</h2>
           <p className="text-lg text-[#2F2F2F] text-center mb-12 max-w-2xl mx-auto font-sans">
             Everything you need to create professional invitation cards without the complexity of traditional design tools.
           </p>
@@ -93,7 +93,7 @@ export default function Home() {
             {/* Example template cards, now with Unsplash images matching the title */}
             <div className="bg-[#F4EBD0] rounded-2xl shadow p-0 overflow-hidden flex flex-col text-[#095764]">
               <div className="relative">
-                <img src="https://images.unsplash.com/photo-1600224503282-8a4e3b876808?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEVsZWdhbnQlMjBSb3NlJTIwV2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Elegant Rose Wedding" className="w-full h-48 object-cover" />
+                <img src="https://images.unsplash.com/photo-1600224503282-8a4e3b876808?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEVsZWdhbnQlMjBSb3NlJTIwV2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Elegant Rose Wedding invitation card" className="w-full h-48 object-cover" />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="text-lg text-[#2F2F2F] mb-1 font-serif">Elegant Rose Wedding</div>
@@ -103,7 +103,7 @@ export default function Home() {
             <div className="bg-[#F4EBD0] rounded-2xl shadow p-0 overflow-hidden flex flex-col text-[#095764]">
               <div className="relative">
                 <span className="absolute top-3 left-3 bg-[#F18701] text-white text-xs font-bold px-3 py-1 rounded-full shadow font-sans">Wedding</span>
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern Minimalist" className="w-full h-48 object-cover" />
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern Minimalist invitation card" className="w-full h-48 object-cover" />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="text-lg text-[#2F2F2F] mb-1 font-serif">Modern Minimalist</div>
@@ -113,7 +113,7 @@ export default function Home() {
             <div className="bg-[#F4EBD0] rounded-2xl shadow p-0 overflow-hidden flex flex-col text-[#095764]">
                 <div className="relative">
                 <span className="absolute top-3 left-3 bg-[#F18701] text-white text-xs font-bold px-3 py-1 rounded-full shadow font-sans">Popular</span>
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Colorful Celebration" className="w-full h-48 object-cover" />
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Colorful Celebration invitation card" className="w-full h-48 object-cover" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                 <div className="text-lg text-[#2F2F2F] mb-1 font-serif">Colorful Celebration</div>
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
             <div className="bg-[#F4EBD0] rounded-2xl shadow p-0 overflow-hidden flex flex-col text-[#095764]">
               <div className="relative">
-                <img src="https://plus.unsplash.com/premium_photo-1691872437494-ef75b3a00d6f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fDFzdCUyMGJpcnRoZGF5fGVufDB8fDB8fHww" alt="Sweet Sixteen" className="w-full h-48 object-cover" />
+                <img src="https://plus.unsplash.com/premium_photo-1691872437494-ef75b3a00d6f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fDFzdCUyMGJpcnRoZGF5fGVufDB8fDB8fHww" alt="Sweet Sixteen invitation card" className="w-full h-48 object-cover" />
                 </div>
               <div className="p-5 flex-1 flex flex-col">
                 <div className="text-lg text-[#2F2F2F] mb-1 font-serif">One-derful</div>
@@ -164,7 +164,7 @@ export default function Home() {
         </div>
       </section>
       {/* Footer Section */}
-      <footer className="bg-[#EAE7DC] py-8 mt-12 text-[#095764]">
+      <footer className="bg-[#EAE7DC] py-4 mt-8 text-[#095764]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-base font-sans text-[#095764]">&copy; {new Date().getFullYear()} InviteEasy. All rights reserved.</div>
           <div className="flex gap-6">

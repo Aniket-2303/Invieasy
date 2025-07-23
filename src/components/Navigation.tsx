@@ -28,7 +28,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center h-24">
-              <img src="/Logo/invieasy_logo-rbg.png" alt="InviteEasy Logo" className="h-25 w-auto object-contain" />
+              <img src="/Logo/invieasy_logo-rbg.png" alt="InviteEasy logo" className="h-25 w-auto object-contain" />
             </Link>
           </div>
 
@@ -39,12 +39,11 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-6 py-3 rounded-xl text-base font-sans transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-xl text-base font-poppins transition-all duration-300 ${
                     isActive(item.href)
                       ? 'text-[#095764] bg-[#e0f1f3]'
                       : 'text-[#095764] hover:text-[#07414a] hover:bg-[#e0f1f3]'
                   }`}
-                  style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {item.icon}
                   {item.name}
@@ -78,12 +77,11 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-4 py-3 rounded-xl text-base font-sans transition-all duration-200 ${
+                className={`block px-4 py-3 rounded-xl text-base font-poppins transition-all duration-200 ${
                   isActive(item.href)
                     ? 'text-[#095764] bg-[#e0f1f3]'
                     : 'text-[#095764] hover:text-[#07414a] hover:bg-[#e0f1f3]'
                 }`}
-                style={{ fontFamily: 'Inter, sans-serif' }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.icon}
