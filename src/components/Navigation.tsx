@@ -4,14 +4,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { FaBars, FaTimes, FaHome, FaRegClone } from 'react-icons/fa';
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Navigation() {
+  const t = useTranslation();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Home', href: '/', icon: <FaHome className="inline mr-2 align-text-bottom" /> },
-    { name: 'Templates', href: '/templates', icon: <FaRegClone className="inline mr-2 align-text-bottom" /> },
+    { name: t('nav_home'), href: '/', icon: <FaHome className="mr-2" /> },
+    { name: t('nav_templates'), href: '/templates', icon: <FaRegClone className="mr-2" /> },
   ];
 
   const isActive = (href: string) => {
@@ -45,8 +47,10 @@ export default function Navigation() {
                       : 'text-[#095764] hover:text-[#07414a] hover:bg-[#e0f1f3]'
                   }`}
                 >
-                  {item.icon}
-                  {item.name}
+                  <span className="flex items-center">
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </span>
                 </Link>
               ))}
             </div>
@@ -84,8 +88,10 @@ export default function Navigation() {
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.icon}
-                {item.name}
+                <span className="flex items-center">
+                  {item.icon}
+                  <span>{item.name}</span>
+                </span>
               </Link>
             ))}
           </div>

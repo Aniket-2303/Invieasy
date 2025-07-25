@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Template } from '@/data/templates';
 import Link from 'next/link';
 import { FaEdit } from 'react-icons/fa';
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface TemplateGridProps {
   templates: Template[];
@@ -10,6 +11,7 @@ interface TemplateGridProps {
 }
 
 export default function TemplateGrid({ templates, category }: TemplateGridProps) {
+  const t = useTranslation();
   const [search] = useState('');
   const [sort] = useState('popular');
   const [selectedCategory] = useState(category || 'all');
@@ -53,12 +55,12 @@ export default function TemplateGrid({ templates, category }: TemplateGridProps)
               {/* Badge */}
               {template.isPopular && (
                 <span className="absolute top-3 right-3 text-white text-xs font-medium px-3 py-1 rounded-full shadow bg-[#F18701]">
-                  Popular
+                  {t('template_popular')}
                 </span>
               )}
               {template.isNew && (
                 <span className="absolute top-3 left-3 text-white text-xs font-medium px-3 py-1 rounded-full shadow bg-[#F18701]">
-                  New
+                  {t('template_new')}
                 </span>
               )}
               {/* Hover Overlay */}
@@ -68,7 +70,7 @@ export default function TemplateGrid({ templates, category }: TemplateGridProps)
                   className="px-3 py-1.5 rounded-md bg-[#F18701] text-white font-medium font-serif shadow flex items-center gap-1 text-sm border border-[#F18701] hover:bg-[#d46e00] transition min-w-[120px] justify-center"
                 >
                   <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15.232 5.232l3.536 3.536M9 13l6.071-6.071a2 2 0 112.828 2.828L11.828 15.828a4 4 0 01-1.414.828l-4.243 1.414 1.414-4.243a4 4 0 01.828-1.414z' /></svg>
-                  Edit Template
+                  {t('edit_template')}
                 </Link>
               </div>
             </div>
@@ -81,7 +83,7 @@ export default function TemplateGrid({ templates, category }: TemplateGridProps)
                   href={`/templates/editor/${template.id}`}
                   className="flex items-center gap-1 px-3 py-1 border border-[#F18701] rounded-full text-[#F18701] hover:bg-[#F18701] hover:text-white transition text-xs font-medium shadow-sm"
                 >
-                  <FaEdit /> Edit
+                  <FaEdit /> {t('edit')}
                 </Link>
               </div>
             </div>
@@ -93,11 +95,11 @@ export default function TemplateGrid({ templates, category }: TemplateGridProps)
       {sorted.length === 0 && (
         <div className="text-center py-12">
           <div className="text-gray-400 text-6xl mb-4">🎨</div>
-          <h3 className="text-xl font-semibold text-gray-600 mb-2">No templates found</h3>
+          <h3 className="text-xl font-semibold text-gray-600 mb-2">{t('no_templates_found')}</h3>
           <p className="text-gray-500">
             {selectedCategory === 'all' 
-              ? 'No templates available at the moment.'
-              : `No templates available for ${selectedCategory} category.`
+              ? t('no_templates_available')
+              : t('no_templates_for_category').replace('{category}', selectedCategory)
             }
           </p>
         </div>

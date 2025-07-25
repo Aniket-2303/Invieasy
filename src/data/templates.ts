@@ -56,7 +56,42 @@ export const categories: Category[] = [
     description: 'Professional business invitations',
     backgroundImage: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNvcnBvcmF0ZXxlbnwwfHwwfHx8MA%3D%3D',
     templateCount: 3
-  }
+  },
+  {
+    id: 'baby-shower',
+    name: 'Baby Shower',
+    description: 'Adorable invitations for baby showers',
+    backgroundImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=60',
+    templateCount: 0
+  },
+  {
+    id: 'parties',
+    name: 'Parties',
+    description: 'Invitations for all kinds of parties',
+    backgroundImage: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?w=600&auto=format&fit=crop&q=60',
+    templateCount: 0
+  },
+  {
+    id: 'festival',
+    name: 'Festival',
+    description: 'Festive invitations for every occasion',
+    backgroundImage: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&auto=format&fit=crop&q=60',
+    templateCount: 0
+  },
+  {
+    id: 'religious',
+    name: 'Religious Celebrations',
+    description: 'Invitations for religious events and ceremonies',
+    backgroundImage: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&auto=format&fit=crop&q=60',
+    templateCount: 0
+  },
+  {
+    id: 'thank-you',
+    name: 'Thank You Cards',
+    description: 'Express your gratitude with style',
+    backgroundImage: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&auto=format&fit=crop&q=60',
+    templateCount: 0
+  },
 ];
 
 import { weddingTemplates } from "./weddingTemplates";

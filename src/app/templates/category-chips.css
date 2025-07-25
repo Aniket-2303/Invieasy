@@ -1,0 +1,21 @@
+.category-chips-carousel {
+  overflow: hidden;
+  position: relative;
+}
+.category-chips-track {
+  animation: chips-scroll-x 24s linear infinite;
+  width: max-content;
+}
+
+@keyframes chips-scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.chip-shadow {
+  box-shadow: 0 2px 8px rgba(241,135,1,0.08);
+} 

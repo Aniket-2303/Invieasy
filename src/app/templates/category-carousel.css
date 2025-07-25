@@ -1,0 +1,19 @@
+.category-carousel {
+  overflow: hidden;
+  position: relative;
+}
+.category-carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-x 32s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+} 
