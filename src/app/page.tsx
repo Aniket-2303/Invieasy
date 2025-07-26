@@ -64,6 +64,12 @@ export default function Home() {
             >
               {t("gujarati")}<br/><span className='text-[10px] md:text-xs font-normal'>Gujarati</span>
             </button>
+            <button
+              className={`min-w-[90px] min-h-[36px] rounded-full px-3 py-1 font-bold text-sm md:text-base shadow-lg border-2 border-[#F18701] focus:outline-none focus:ring-2 focus:ring-[#F18701] flex flex-col items-center justify-center transition-all duration-200 ${language === "mr" ? "bg-gradient-to-r from-[#F18701] to-[#F35B04] text-white" : "bg-white text-[#095764] hover:bg-[#F18701] hover:text-white"}`}
+              onClick={() => setLanguage("mr")}
+            >
+              {t("marathi")}<br/><span className='text-[10px] md:text-xs font-normal'>Marathi</span>
+            </button>
           </div>
         </div>
       </section>
